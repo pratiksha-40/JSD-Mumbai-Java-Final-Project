@@ -1,0 +1,33 @@
+<!-- Hero Section -->
+<section class="hero bg-primary text-white text-center py-5">
+  <h1>Welcome to Our E-Learning Platform</h1>
+  <p>Explore a variety of online courses to boost your skills</p>
+  <a href="#courses" class="btn btn-light">Explore Courses</a>
+</section>
+
+<!-- Course Catalog Section -->
+<section id="courses" class="container my-5">
+  <h2 class="text-center mb-4">Our Popular Courses</h2>
+
+  <!-- Row to display courses in grid -->
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let course of courses">
+      <div class="card h-100 shadow">
+        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Course Image">
+        <div class="card-body">
+          <h5 class="card-title">{{ course.name }}</h5>
+          <p class="card-text">{{ course.description }}</p>
+          <!-- Use the viewCourseDetails method to navigate -->
+          <button (click)="viewCourseDetails(course.id)" class="btn btn-primary">Enroll Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta bg-primary text-white text-center py-5">
+  <h2>Ready to Learn?</h2>
+  <p>Start your learning journey today and gain new skills that will take your career to the next level.</p>
+  <a href="#courses" class="btn btn-light">Browse All Courses</a>
+</section>
