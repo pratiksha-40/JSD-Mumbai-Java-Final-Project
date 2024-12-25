@@ -1,0 +1,93 @@
+<div class="admin-dashboard" style="display: flex; height: 100vh; font-family: Arial, sans-serif;">
+    <!-- Sidebar -->
+    <aside 
+        style="width: 250px; background-color: #2c3e50; color: white; padding: 20px; display: flex; flex-direction: column;"
+    >
+        <h2 style="text-align: center; margin-bottom: 30px; font-size: 24px; font-weight: bold;">Admin Panel</h2>
+        <nav>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 15px;">
+                    <a href="#" style="text-decoration: none; color: #ecf0f1; display: block; padding: 10px; border-radius: 5px; background-color: #34495e;">
+                        Dashboard
+                    </a>
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <a href="#" style="text-decoration: none; color: #ecf0f1; display: block; padding: 10px; border-radius: 5px;">
+                        Manage Courses
+                    </a>
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <a href="#" style="text-decoration: none; color: #ecf0f1; display: block; padding: 10px; border-radius: 5px;">
+                        View Reports
+                    </a>
+                </li>
+                <li>
+                    <a href="#" style="text-decoration: none; color: #ecf0f1; display: block; padding: 10px; border-radius: 5px;">
+                        Settings
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main style="flex: 1; background-color: #ecf0f1; padding: 20px;">
+        <header style="background-color: #34495e; color: white; padding: 20px; border-radius: 5px; margin-bottom: 20px;">
+            <h1 style="margin: 0; font-size: 28px;">Welcome to Admin Dashboard</h1>
+        </header>
+
+        <!-- Button to show the post course form -->
+        <div style="margin-bottom: 20px;">
+            <button 
+                class="btn btn-primary" 
+                (click)="togglePostForm()" 
+                style="background-color: #2980b9; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;"
+            >
+                Post Course
+            </button>
+        </div>
+
+        <!-- Post Form Section -->
+        <div 
+            *ngIf="showPostForm" 
+            style="background-color: white; padding: 20px; border: 1px solid #ccc; border-radius: 8px;"
+        >
+            <h2 style="color: #2c3e50; margin-bottom: 20px;">Post Course Form</h2>
+            <app-post-form></app-post-form>
+        </div>
+
+        <!-- Course List Section -->
+        <div style="margin-top: 20px;">
+            <h2 style="color: #2c3e50;">Manage Courses</h2>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Course Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let course of courses">
+                        <td>{{ course.courseName }}</td>
+                        <td>{{ course.courseDescription }}</td>
+                        <td>
+                            <button 
+                                (click)="editCourse(course)" 
+                                style="padding: 5px 10px; margin-right: 10px; background-color: #2980b9; color: white; border: none; border-radius: 4px;"
+                            >
+                                Edit
+                            </button>
+                            <button 
+                                (click)="deleteCourse(course.id)" 
+                                style="padding: 5px 10px; background-color: #e74c3c; color: white; border: none; border-radius: 4px;"
+                            >
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
