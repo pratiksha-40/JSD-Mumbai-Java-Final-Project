@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./post-form.component.scss'],
 })
 export class PostFormComponent implements OnInit {
-  @Input() courseId: string | null = null; // Input to allow editing of an existing course
+  @Input() id: number | null = null; // Input to allow editing of an existing course
   courseName: string = '';
   courseDescription: string = '';
   duration: string = '';
@@ -22,8 +22,8 @@ export class PostFormComponent implements OnInit {
   constructor(private courseService: CourseService, private router: Router) {}
 
   ngOnInit(): void {
-    if (this.courseId) {
-      this.courseService.getCourseById(this.courseId).subscribe((course) => {
+    if (this.id) {
+      this.courseService.getCourseById(this.id).subscribe((course) => {
         this.courseName = course.courseName;
         this.courseDescription = course.courseDescription;
         this.duration = course.duration;
@@ -41,8 +41,8 @@ export class PostFormComponent implements OnInit {
       price: this.price,
     };
 
-    if (this.courseId) {
-      this.courseService.updateCourse(this.courseId, newCourse).subscribe({
+    if (this.id) {
+      this.courseService.updateCourse(this.id, newCourse).subscribe({
         next: (response) => {
           if (response) {
             alert('Course successfully updated!');
