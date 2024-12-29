@@ -1,0 +1,22 @@
+<div *ngIf="isLoading" class="loading">
+    <p>Loading purchased courses...</p>
+  </div>
+  
+  <div *ngIf="!isLoading && purchasedCourses.length > 0">
+    <h2>Your Purchased Courses</h2>
+    <div *ngFor="let course of purchasedCourses" class="course-card">
+      <h3>{{ course.name }}</h3>
+      <p>{{ course.description }}</p>
+      <p><strong>Duration:</strong> {{ course.duration }} hours</p>
+      <p><strong>Price:</strong> ${{ course.price }}</p>
+    </div>
+  </div>
+  
+  <div *ngIf="!isLoading && purchasedCourses.length === 0">
+    <p>You have not purchased any courses yet.</p>
+  </div>
+  
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+  

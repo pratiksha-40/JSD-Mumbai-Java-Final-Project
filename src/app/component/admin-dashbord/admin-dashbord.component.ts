@@ -42,7 +42,7 @@ export class AdminDashbordComponent implements OnInit {
   }
 
   // Delete a course
-  deleteCourse(courseId: string) {
+  deleteCourse(courseId: number) {
     if (confirm('Are you sure you want to delete this course?')) {
       this.courseService.deleteCourse(courseId).subscribe(() => {
         this.loadCourses(); // Reload courses after deletion

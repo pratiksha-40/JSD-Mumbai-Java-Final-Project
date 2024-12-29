@@ -10,6 +10,7 @@ import { UserDashbordComponent } from './component/user-dashbord/user-dashbord.c
 import { AdminDashbordComponent } from './component/admin-dashbord/admin-dashbord.component';
 import { PostFormComponent } from './component/post-form/post-form.component';
 import { EmailComponent } from './component/email/email.component';
+import { MyCoursesComponent } from './component/my-courses/my-courses.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,5 +24,6 @@ export const routes: Routes = [
   {path : 'admindashborad', component : AdminDashbordComponent},
   {path : 'postform', component : PostFormComponent},
   { path: 'course/:id', component: CourseComponent},
-  { path:'email', component:EmailComponent}
+  { path:'email', component:EmailComponent},
+  { path: 'my-courses', component: MyCoursesComponent }
 ];

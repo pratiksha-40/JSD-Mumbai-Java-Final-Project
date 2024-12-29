@@ -4,8 +4,8 @@ import { CourseService } from '../../service/course-service.service';
 import { CommonModule } from '@angular/common';
 
 interface Course {
-  name: string;
-  description: string;
+  courseName: string;
+  courseDescription: string;
   price: number;
   id: number;
 }
