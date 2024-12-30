@@ -42,7 +42,7 @@ export class UserDashbordComponent implements OnInit {
         }));
         console.log('Transformed all courses:', this.allCourses);
         this.isLoading = false;
-        this.viewState = 'allCourses'; // Show all courses after fetching
+        this.viewState = 'allCourses'; 
         this.showAllCourses = true;
         this.showMyCourses = false;
       },

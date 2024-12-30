@@ -5,7 +5,7 @@
       <nav>
         <ul style="list-style: none; padding: 0;">
           <li style="margin-bottom: 15px;">
-            <a href="#" style="text-decoration: none; color: #ecf0f1; display: block; padding: 10px; border-radius: 5px; background-color: #34495e; cursor: pointer;" (click)="viewAllCourses()">All Courses</a>
+            <a  style="text-decoration: none; color: #ecf0f1; display: block; padding: 10px; border-radius: 5px; background-color: #34495e; cursor: pointer;" (click)="viewAllCourses()">All Courses</a>
           </li>
           <li style="margin-bottom: 15px;">
             <a href="#" style="text-decoration: none; color: #ecf0f1; display: block; padding: 10px; border-radius: 5px; cursor: pointer;" (click)="viewPurchasedCourses()">My Courses</a>
@@ -47,7 +47,7 @@
           <p>{{ selectedCourse.description }}</p>
           <p><strong>Duration:</strong> {{ selectedCourse.duration }}</p>
           <p><strong>Price:</strong> ₹{{ selectedCourse.price }}</p>
-          <button *ngIf="!isCoursePurchased(selectedCourse.id)" (click)="purchaseCourse(selectedCourse)">Purchase</button>
+          <button *ngIf="!isCoursePurchased(selectedCourse.id)" (click)="purchaseCourse(selectedCourse)" class="btn btn-primary">Purchase</button>
           <p *ngIf="isCoursePurchased(selectedCourse.id)" style="color: green;">This course is already purchased.</p>
         </div>
       </div>
